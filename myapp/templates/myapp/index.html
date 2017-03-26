@@ -1,0 +1,11 @@
+{% if list_of_docs %}
+	<ul>
+		{% for doc in list_of_docs %}
+			<li><a href="/myapp/{{doc.Document}}">{{ doc.keyword }}</a></li>
+		{% endfor %}
+
+	</ul>		
+{% else %}
+	<p>No Data available</p>
+
+{% endif %}
