@@ -1,7 +1,7 @@
-<h1>Here is the list of All documents available in Database</h1>
-{% if list_of_docs %}
+<h1>You have got following Search Results</h1>
+{% if ans %}
 	<ul>
-		{% for doc in list_of_docs %}
+		{% for doc in ans %}
 			<li><a href="/myapp/{{doc.Document}}">{{ doc.keyword }}</a></li>
 		{% endfor %}
 

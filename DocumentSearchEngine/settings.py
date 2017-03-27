@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'myapp',
     'rest_framework',
+    'tastypie',
     # 'myapp.apps.MyappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -48,7 +50,6 @@ REST_FRAMEWORK = {
     ],
     'PAGE_SIZE': 10
 }
-
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -123,6 +124,20 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+DATABASES['default'] = dj_database_url.config()
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 
 # Static files (CSS, JavaScript, Images)

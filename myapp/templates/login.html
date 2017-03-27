@@ -1,0 +1,7 @@
+<h1>Login Here!</h1>
+<form method="POST" enctype="multipart/form-data" >{% csrf_token %}
+    <p><label for="id_username">Username:</label> <input id="id_username" maxlength="150" name="username" type="text" required /> <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span></p>
+<p><label for="id_password">Password:</label> <input id="id_password" maxlength="128" name="password" type="text" required /></p>
+    <button type="submit" value="save">Save</button>
+</form>
+
